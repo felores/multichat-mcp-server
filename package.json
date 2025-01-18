@@ -1,9 +1,9 @@
 {
-  "name": "any-chat-completions-mcp-server",
-  "version": "0.1.0",
-  "description": "A Model Context Protocol server",
-  "private": true,
+  "name": "@felores/multichat-mcp-server",
+  "version": "0.2.0",
+  "description": "A Model Context Protocol server for chat completions with any AI model",
   "type": "module",
+  "main": "./build/index.js",
   "bin": {
     "any-chat-completions-mcp-server": "./build/index.js"
   },
@@ -15,6 +15,20 @@
     "prepare": "npm run build",
     "watch": "tsc --watch",
     "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "chat",
+    "completions",
+    "server"
+  ],
+  "author": "felores",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felores/multichat-mcp-server"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "0.6.0",

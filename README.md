@@ -4,23 +4,56 @@ Integrate Claude with Any OpenAI SDK Compatible Chat Completion API - OpenAI, Pe
 
 This implements the Model Context Protocol Server. Learn more: [https://modelcontextprotocol.io](https://modelcontextprotocol.io)
 
-This is a TypeScript-based MCP server that implements an implementation into any OpenAI SDK Compatible Chat Completions API.
+## Quick Start with npx
 
-It has one tool, `chat` which relays a question to a configured AI Chat Provider.
+The fastest way to get started is using npx by adding the server config to Claude Desktop:
 
-![Claude uses OpenAI](img/screencap.mov)
+On MacOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+On Windows: `C:\Users\NAME\AppData\Roaming\Claude\claude_desktop_config.json`
 
-<a href="https://glama.ai/mcp/servers/nuksdrfb55"><img width="380" height="200" src="https://glama.ai/mcp/servers/nuksdrfb55/badge" /></a>
+This is an example implementing the OpenAI o1 preview model and Perplexity, but you can include any compatible provider or model:
 
-## Development
-
-Install dependencies:
-```bash
-npm install
+```json
+{
+  "mcpServers": {
+    "chat-openai": {
+      "command": "npx",
+      "args": [
+        "@felores/multichat-mcp-server"
+      ],
+      "env": {
+        "AI_CHAT_KEY": "OPENAI_KEY",
+        "AI_CHAT_NAME": "OpenAI",
+        "AI_CHAT_MODEL": "o1-preview",
+        "AI_CHAT_BASE_URL": "https://api.openai.com/v1"
+      }
+    },
+    "chat-perplexity": {
+      "command": "npx",
+      "args": [
+        "@felores/multichat-mcp-server"
+      ],
+      "env": {
+        "AI_CHAT_KEY": "PERPLEXITY_KEY",
+        "AI_CHAT_NAME": "Perplexity",
+        "AI_CHAT_MODEL": "llama-3.1-sonar-small-128k-online",
+        "AI_CHAT_BASE_URL": "https://api.perplexity.ai"
+      }
+    }
+  }
+}
 ```
 
-Build the server:
+## Alternative Installation Methods
+
+### Local Development
+
+If you want to contribute or modify the server, you can install it locally:
+
 ```bash
+git clone https://github.com/felores/multichat-mcp-server.git
+cd multichat-mcp-server
+npm install
 npm run build
 ```
 
@@ -34,9 +67,7 @@ npm run watch
 To add OpenAI to Claude Desktop, add the server config:
 
 On MacOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
-
-
+On Windows: `C:\Users\NAME\AppData\Roaming\Claude\claude_desktop_config.json`
 
 ```json
 
@@ -121,8 +152,3 @@ npm run inspector
 ```
 
 The Inspector will provide a URL to access debugging tools in your browser.
-
-### Acknowledgements
-
-- Obviously the modelcontextprotocol and Anthropic team for the MCP Specification and integration into Claude Desktop. [https://modelcontextprotocol.io/introduction](https://modelcontextprotocol.io/introduction)
-- [PyroPrompts](https://pyroprompts.com?ref=github-any-chat-completions-mcp) for sponsoring this project. Use code `CLAUDEANYCHAT` for 20 free automation credits on Pyroprompts.
