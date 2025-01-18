@@ -1,6 +1,8 @@
-# any-chat-completions-mcp MCP Server
+# Multi Chat MCP Server
 
 Integrate Claude with Any OpenAI SDK Compatible Chat Completion API - OpenAI, Perplexity, Groq, xAI, PyroPrompts and more.
+
+This is an easier to install fork of [any-chat-completions-mcp](https://github.com/pyroprompts/any-chat-completions-mcp) with NPX package support, so you can avoid cloning the project to your local machine
 
 This implements the Model Context Protocol Server. Learn more: [https://modelcontextprotocol.io](https://modelcontextprotocol.io)
 
