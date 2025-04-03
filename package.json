@@ -5,7 +5,7 @@
   "type": "module",
   "main": "./build/index.js",
   "bin": {
-    "any-chat-completions-mcp-server": "./build/index.js"
+    "any-chat-completions-mcp-server": "build/index.js"
   },
   "files": [
     "build"
@@ -28,7 +28,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/felores/multichat-mcp-server"
+    "url": "git+https://github.com/felores/multichat-mcp-server.git"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "0.6.0",
